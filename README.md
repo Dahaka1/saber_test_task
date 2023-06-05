@@ -16,3 +16,4 @@ Data contained in 'yaml' format files defining automatically using selected path
     - _'python main.py get build/task *object name*'_ - getting object defined by name if exists with its:
         - included list of tasks sorted by tasks and their dependencies (for builds-object);
         - task dependencies (for tasks-object).
+- Also, you can set up data-files path in 'src.static.config', and they will be dynamically relocated in the path you need.
