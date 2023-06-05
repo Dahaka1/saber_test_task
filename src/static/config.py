@@ -1,10 +1,12 @@
-DATA_BASE_DIR = "yaml"
-DATA_BASE_FILES_FORMAT = ".yaml"
+DATA_BASE_DIR = "data"
+DATA_BASE_FILES_FORMAT = ".yaml"  # only this format supports
 SUPPORTED_COMMANDS = [
 	"list",
 	"get",
 	"builds",
-	"tasks"
+	"tasks",
+	"task",
+	"build"
 ]
 
 LOGGING_FORMAT = '{time} {level} {message}'

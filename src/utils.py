@@ -1,8 +1,8 @@
 import os
 import sys
-from . import settings
+from . import settings, models
 from shutil import copy2
-from typing import Optional
+from typing import Optional, Any
 
 
 def init_yaml_strings(args: list[str]) -> list[str]:
@@ -25,7 +25,6 @@ def update_data_dir(args: list[str]) -> bool:
 	"""
 	function updates project directories if default data paths was
 	changed in config-file and some data files already exists
-
 	:param args: data files names
 	"""
 	files_moved = False
@@ -69,3 +68,19 @@ def find_data_filepaths(path: str, filenames: list[str]) -> Optional[tuple[list,
 								result.append(f_path)
 								if len(result) == len(filenames):
 									return result, root
+
+
+def model_init(model_name: str) -> Any:
+	"""
+	:param model_name: model name that needs to be defined
+	:return: class type hinting from models.py
+	"""
+	if not model_name.endswith('s'):
+		model_name += 's'
+	try:
+		model_cls = getattr(models, model_name.title())
+		return model_cls
+	except Exception:
+		raise AttributeError(f"Model named '{model_name}' isn't defined at 'src.models'")
+
+

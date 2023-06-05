@@ -1,4 +1,4 @@
-BUILDS = """builds:
+builds = """builds:
 - name: approach_important
   tasks:
   - map_gray_centaurs
@@ -13,7 +13,7 @@ BUILDS = """builds:
   - upgrade_lime_leprechauns
 """
 
-TASKS = """tasks:
+tasks = """tasks:
 - name: bring_black_leprechauns
   dependencies: []
 - name: bring_gray_cyclops

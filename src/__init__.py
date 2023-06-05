@@ -31,3 +31,4 @@ def stderror(content: str, exception: Optional[Exception] = None) -> None:
 		f'{content}' + (f': exception {exception.__class__.__name__} - {exception}' if not exception is None else '')
 	)
 
+
