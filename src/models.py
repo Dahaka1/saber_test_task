@@ -77,7 +77,7 @@ class Builds(YamlData):
 			   f"* name: {self.name}\n" \
 			   f"* tasks: {', '.join(tasks_queue)}"
 
-	def get(self):
+	def get(self) -> list[Tasks]:
 		"""
 		defines objects of tasks that build owns
 		"""
@@ -89,6 +89,7 @@ class Builds(YamlData):
 			self.tasks = [Tasks(task) for task in tasks]
 			for task in self.tasks:
 				task.get()
+			return self.tasks
 
 
 class Tasks(YamlData):
@@ -106,7 +107,7 @@ class Tasks(YamlData):
 			   f"* name: {self.name}\n" \
 			   f"* dependencies: {', '.join(self.dependencies) if any(self.dependencies) else 'not found'}"
 
-	def get(self) -> None:
+	def get(self) -> list[str]:
 		"""
 		defines task dependencies
 		"""
@@ -115,3 +116,4 @@ class Tasks(YamlData):
 				self.dependencies = next(filter(lambda item: item["name"] == self.name, self.data)).get('dependencies')
 			except StopIteration:
 				raise Exception(f"Task named {self.name} wasn't found")
+			return self.dependencies

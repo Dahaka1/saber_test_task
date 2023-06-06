@@ -7,8 +7,7 @@ Data contained in 'yaml' format files defining automatically using selected path
 
 # BUILT-IN
 - _Python 3.9_;
-- Advanced logging: _loguru_;
-- Testing: _Python unittest_.
+- Advanced logging: _loguru_.
 
 # USAGE
 - Start main.py using commandline arguments specifying data-query. For example:
